@@ -48,6 +48,7 @@ resources.load("script", "dialog.js");
 resources.load("script", "script.js");
 resources.load("script", "color_util.js");
 resources.load("script", "renderer.js");
+resources.load("bitsyfont", "ascii_small.bitsyfont");
 
 
 /* exporting */
@@ -59,6 +60,7 @@ function escapeSpecialCharacters(str) {
 
 function replaceTemplateMarker(template, marker, text) {
 	var markerIndex = template.indexOf( marker );
+	if(marker == "@@M")console.log(text)
 	return template.substr( 0, markerIndex ) + text + template.substr( markerIndex + marker.length );
 }
 
@@ -87,7 +89,7 @@ this.exportGame = function(gameData, title, pageColor, filename, isFixedSize, si
 
 	// export the default font in its own script tag (TODO : remove if unused)
 	html = replaceTemplateMarker( html, "@@N", "ascii_small" );
-	html = replaceTemplateMarker( html, "@@M", editorFontManager.GetData("ascii_small") );
+	html = replaceTemplateMarker( html, "@@M", resources.get("ascii_small.bitsyfont") );// editorFontManager.GetData("ascii_small") );
 
 	html = replaceTemplateMarker( html, "@@D", gameData );
 
