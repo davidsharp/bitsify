@@ -1,4 +1,4 @@
-var FontManager = require('./font.js')
+var FontManager = require('./font-forked.js')
 var editorFontManager = new FontManager()
 
 function Exporter() {
@@ -10,11 +10,11 @@ function Exporter() {
 		var pathRoot = "./node_modules/Bitsy/editor/shared";
 	
 		this.load = function(folder, filename, onready) {
-			var data=require('fs').readFileSync(pathRoot + '/' + folder + '/' + filename, 'utf8', /*, onready||function(e,data){self.set(filename,data)}*/)
+			var data=require('fs').readFileSync(pathRoot + '/' + folder + '/' + filename, 'utf8')
 			self.set(filename,data)
 		}
 	
-		this.get = function(filename) {console.log(filename,resources[filename])
+		this.get = function(filename) {
 			return resources[filename];
 		}
 	
@@ -171,38 +171,6 @@ this.importGame = function( html ) {
 }
 
 } // Exporter()
-
-/*var ExporterUtils = {
-	DownloadFile : function(filename, text) {
-
-		if( browserFeatures.blobURL ) {
-			// new blob version
-			var a = document.createElement('a');
-			var blob = new Blob( [text] );
-			a.download = filename;
-			a.href = makeURL.createObjectURL(blob);
-			document.body.appendChild(a);
-			a.click();
-			document.body.removeChild(a);
-		}
-		else {
-			// old version
-			var element = document.createElement('a');
-
-			element.setAttribute('href', 'data:attachment/file;charset=utf-8,' + encodeURIComponent(text));
-
-			element.setAttribute('download', filename);
-			element.setAttribute('target', '_blank');
-
-			element.style.display = 'none';
-			document.body.appendChild(element);
-
-			element.click();
-
-			document.body.removeChild(element);
-		}
-	}
-}*/
 
 var ExporterUtils = {
 	DownloadFile : function(filename, data) {

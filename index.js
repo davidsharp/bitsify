@@ -1,16 +1,4 @@
-var FontManager = require('./node_modules/Bitsy/editor/shared/script/font.js')
-
-//var editorFontManager = new FontManager()
-//var resources = new ResourceLoader()
-
-//var Exporter = require('./node_modules/Bitsy/editor/shared/script/exporter.js')
-
-/*var ExporterUtils = {
-	DownloadFile : function(filename, data) {
-
-    require('fs').writeFile(filename, data)
-	}
-}*/
+var Exporter = require('./exporter-forked.js')
 
 var exporter = new Exporter();
 //exporter.exportGame( gameData, title, export_settings.page_color, filenameFromGameTitle() + ".html", isFixedSize, size );
@@ -100,37 +88,3 @@ VAR a
 42`
 
 exporter.exportGame( gameData, 'test', '#beaded', "test.html", false, 200 );
-
-/*
-function ResourceLoader() {
-		var resources = {};
-	
-		var pathRoot = "./node_modules/Bitsy/editor/shared";
-	
-		this.load = function(folder, filename, onready) {
-			require('fs').readFile(pathRoot + '/' + folder + '/' + filename, onReady||function(){})
-		}
-	
-		this.get = function(filename) {
-			return resources[filename];
-		}
-	
-		// for manually adding stuff to the resources that doesn't ACTUALLY have to be loaded from an external file
-		this.set = function(filename,data) {
-			resources[filename] = data;
-		}
-	
-		this.contains = function(filename) {
-			return resources[filename] != null;
-		}
-	
-		this.getResourceLoadedCount = function() {
-			// feels hacky
-			var count = 0;
-			for (var r in resources) {
-				count++;
-			}
-			return count;
-		}
-  }
-*/
