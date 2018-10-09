@@ -1,0 +1,13 @@
+{
+  "name": "bitsify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "bitsify": "index.js"
+  },
+  "author": "David Sharp <davidsharp@charanga.com>",
+  "license": "MIT",
+  "dependencies": {
+    "Bitsy": "https://github.com/le-doux/bitsy"
+  }
+}
