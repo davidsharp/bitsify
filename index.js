@@ -9,6 +9,8 @@ var gameData=`Write your game's title here
 
 ! ROOM_FORMAT 1
 
+TEXT_DIRECTION LTR
+
 PAL 0
 0,82,204
 128,159,255
